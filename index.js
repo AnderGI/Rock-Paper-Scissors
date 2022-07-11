@@ -10,7 +10,7 @@ userEl.textContent += credits
 const computerEl = document.getElementById("computer-txt")
 const titleEl = document.getElementById("title-el")
 //function that lets the user play only 5 rounds
-const fiveRounds = ["First Round","Second Round", "Third Round", "Fourth Round", "Last Round"]
+const fiveRounds = ["FIRST ROUND","SECOND ROUND", "THIRD ROUND", "FOURTH ROUND", "LAST ROUND"]
 let click = -1
 
 //once the start-btn in clicked render randomly after the computer: using .textcontent an intem from the rockPaperScissors array
@@ -24,14 +24,15 @@ startEl.addEventListener("click", function computerItem(){
     }
     if (isPlaying===true){
         let playerItem = prompt("Rock, Paper or Scissors?", ).toUpperCase()
-        renderimages(playerItem)
         randomItem = rockPaperScissors[Math.floor(Math.random()*rockPaperScissors.length)].toUpperCase()
         computerEl.textContent = `The Computer: ${randomItem}`
         computerPlay(playerItem, randomItem)
+        renderUserImages(playerItem)
+        renderComputerImages(randomItem)
     }
     else if(isPlaying===false){
         titleEl.textContent = `Game Over B****`
-        userEl.textContent = `You: `
+        userEl.textContent = `Your credits: $ ${credits}`
         computerEl.textContent = `The Computer: `
     }
 })
@@ -60,10 +61,11 @@ restartEl.addEventListener("click", function restartGame(){
     if (isPlaying===false){
     isPlaying = true
     titleEl.textContent = `Rock, Paper, Scissors`
-    userEl.textContent = `You: `
     computerEl.textContent = `The Computer: `    
     click = -1
     startEl.textContent = `Start Game`
+    container1El.innerHTML = " "
+    container2El.innerHTML = " "
     }
     
 })
@@ -72,19 +74,30 @@ restartEl.addEventListener("click", function restartGame(){
 const imgs = ["images/rock.jpg","images/paper.jpg","images/scissors.jpg"]
 const container1El= document.getElementById("container1")
 const container2El= document.getElementById("container2")
-function renderimages(playerImg){
-    let imgsDom = ""
+function renderUserImages(playerImg){
+    let imgsUser = ""
     if(playerImg==="ROCK"){
-        imgsDom +=`<img class="item-img" src="images/rock.jpg">`
+        imgsUser +=`<img class="item-img" src="images/rock.jpg">`
     } else if(playerImg==="PAPER"){
-        imgsDom += `<img class="item-img" src="images/paper.jpg">`
+        imgsUser += `<img class="item-img" src="images/paper.jpg">`
     } else if (playerImg==="SCISSORS"){
-        imgsDom += `<img class="item-img" src="images/scissors.jpg">`
+        imgsUser += `<img class="item-img" src="images/scissors.jpg">`
     }
-    container1El.innerHTML = imgsDom
+    container1El.innerHTML = imgsUser
 
 }
 
+function renderComputerImages(computerImg){
+    let imgsComputer = ""
+    if(computerImg==="ROCK"){
+        imgsComputer +=`<img class="item-img" src="images/rock.jpg">`
+    } else if(computerImg==="PAPER"){
+        imgsComputer += `<img class="item-img" src="images/paper.jpg">`
+    } else if (computerImg==="SCISSORS"){
+        imgsComputer += `<img class="item-img" src="images/scissors.jpg">`
+    }
+    container2El.innerHTML = imgsComputer
 
-
+}
+//estas dos funcione pueden ir juntas
 
