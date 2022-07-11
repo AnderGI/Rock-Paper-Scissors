@@ -24,6 +24,7 @@ startEl.addEventListener("click", function computerItem(){
     }
     if (isPlaying===true){
         let playerItem = prompt("Rock, Paper or Scissors?", ).toUpperCase()
+        renderimages(playerItem)
         randomItem = rockPaperScissors[Math.floor(Math.random()*rockPaperScissors.length)].toUpperCase()
         computerEl.textContent = `The Computer: ${randomItem}`
         computerPlay(playerItem, randomItem)
@@ -66,4 +67,24 @@ restartEl.addEventListener("click", function restartGame(){
     }
     
 })
+
+//render images
+const imgs = ["images/rock.jpg","images/paper.jpg","images/scissors.jpg"]
+const container1El= document.getElementById("container1")
+const container2El= document.getElementById("container2")
+function renderimages(playerImg){
+    let imgsDom = ""
+    if(playerImg==="ROCK"){
+        imgsDom +=`<img class="item-img" src="images/rock.jpg">`
+    } else if(playerImg==="PAPER"){
+        imgsDom += `<img class="item-img" src="images/paper.jpg">`
+    } else if (playerImg==="SCISSORS"){
+        imgsDom += `<img class="item-img" src="images/scissors.jpg">`
+    }
+    container1El.innerHTML = imgsDom
+
+}
+
+
+
 
