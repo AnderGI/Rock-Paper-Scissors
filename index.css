@@ -2,7 +2,10 @@
     box-sizing: border-box;
 }
 body{
-    background: url("table.png");
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    background: url("./images/table.png");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
