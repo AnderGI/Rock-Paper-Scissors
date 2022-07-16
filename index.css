@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body{
-    background: url(table.png);
+    background: url("table.png");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
